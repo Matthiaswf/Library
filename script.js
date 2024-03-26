@@ -38,6 +38,7 @@ library.forEach((book) => {
 
     let bookInfo = document.createElement('div');
     bookInfo.setAttribute('id', `${book.indexValue}`)
+    bookInfo.setAttribute('onclick', 'removeFromLibrary()')
     bookList.appendChild(bookInfo);
     bookInfo.textContent =  book.info();
     let delButton = document.createElement('button');
@@ -46,3 +47,9 @@ library.forEach((book) => {
     delButton.textContent = 'Delete';
 })         
 });
+
+function removeFromLibrary() {
+    
+    library.splice(this.id, 1);
+    console.log(library);
+}
