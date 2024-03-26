@@ -41,7 +41,7 @@ function removeFromLibrary(index) {
 }
 
 function createBookList () {
-
+    bookList.replaceChildren();
     library.forEach((book) => {
 
         book.indexValue = library.indexOf(book);
