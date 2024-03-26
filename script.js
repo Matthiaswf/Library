@@ -34,12 +34,15 @@ function removeFromLibrary(index) {
     library.splice(index, 1);
     console.log(index)
     console.log(library);
+    bookList.replaceChildren();
+    createBookList();
 }
 
 function createBookList () {
 
     library.forEach((book) => {
 
+        book.indexValue = library.indexOf(book);
         let bookInfo = document.createElement('div');
         bookInfo.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
         bookList.appendChild(bookInfo);
