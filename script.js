@@ -10,6 +10,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.indexValue = undefined;
     
     this.info = function() {
 
@@ -17,25 +18,19 @@ function Book(title, author, pages, read) {
     }
 
     library.push(this);
+    this.indexValue = library.indexOf(this);
+    console.log(library);
 }
 
 function BookFromForm(title, author, pages, read) {
-    this.title = document.getElementById('title').value;
-    this.author = document.getElementById('author').value;
-    this.pages = document.getElementById('pages').value;
-    this.read = document.getElementById('read').value;
-    
-    this.info = function() {
-
-        return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}.`;
-    }
-
-    library.push(this);
+    new Book(document.getElementById('title').value,
+             document.getElementById('author').value,
+             document.getElementById('pages').value,
+             document.getElementById('read').value)
 }
 
 let book1 = new Book('book1', 'me',  '12', 'not read')
 let book2 = new Book('book2', 'alsome', '13', 'read')
-console.log(library);
 
 const displayButton = document.querySelector('.button');
 displayButton.addEventListener('click', () => {
