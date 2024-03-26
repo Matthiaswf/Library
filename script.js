@@ -29,6 +29,7 @@ function BookFromForm(title, author, pages, read) {
              document.getElementById('read').value);
     bookList.replaceChildren();
     createBookList();
+    document.getElementById("form").reset();
 }
 
 function removeFromLibrary(index) {
