@@ -37,7 +37,6 @@ displayButton.addEventListener('click', () => {
 library.forEach((book) => {
 
     let bookInfo = document.createElement('div');
-    bookInfo.setAttribute('id', `${book.indexValue}`)
     bookInfo.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
     bookList.appendChild(bookInfo);
     bookInfo.textContent =  book.info();
