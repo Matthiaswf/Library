@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 let bookList = document.createElement('div');
 bookList.classList.add('bookList');
 container.appendChild(bookList);
+const displayButton = document.querySelector('.button');
 
 let library = [];
 
@@ -28,28 +29,32 @@ function BookFromForm(title, author, pages, read) {
              document.getElementById('read').value)
 }
 
-let book1 = new Book('book1', 'me',  '12', 'not read')
-let book2 = new Book('book2', 'alsome', '13', 'read')
-
-const displayButton = document.querySelector('.button');
-displayButton.addEventListener('click', () => {
-    
-library.forEach((book) => {
-
-    let bookInfo = document.createElement('div');
-    bookInfo.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
-    bookList.appendChild(bookInfo);
-    bookInfo.textContent =  book.info();
-    let delButton = document.createElement('button');
-    delButton.classList.add('delButton');
-    bookInfo.appendChild(delButton);
-    delButton.textContent = 'Delete';
-})         
-});
-
 function removeFromLibrary(index) {
 
     library.splice(index, 1);
     console.log(index)
     console.log(library);
 }
+
+function createBookList () {
+
+    library.forEach((book) => {
+
+        let bookInfo = document.createElement('div');
+        bookInfo.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
+        bookList.appendChild(bookInfo);
+        bookInfo.textContent =  book.info();
+        let delButton = document.createElement('button');
+        delButton.classList.add('delButton');
+        bookInfo.appendChild(delButton);
+        delButton.textContent = 'Delete';
+    })
+};
+
+displayButton.addEventListener('click', () => {
+    
+    createBookList ();   
+});
+
+let book1 = new Book('book1', 'me',  '12', 'not read')
+let book2 = new Book('book2', 'alsome', '13', 'read')
