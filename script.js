@@ -46,13 +46,13 @@ function createBookList () {
 
         book.indexValue = library.indexOf(book);
         let bookInfo = document.createElement('div');
-        bookInfo.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
         bookList.appendChild(bookInfo);
         bookInfo.textContent =  book.info();
         let delButton = document.createElement('button');
         delButton.classList.add('delButton');
         bookInfo.appendChild(delButton);
         delButton.textContent = 'Delete';
+        delButton.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
     })
 };
 
