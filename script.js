@@ -10,7 +10,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.indexValue = undefined;
     
     this.info = function() {
 
@@ -38,6 +37,7 @@ displayButton.addEventListener('click', () => {
 library.forEach((book) => {
 
     let bookInfo = document.createElement('div');
+    bookInfo.setAttribute('id', `${book.indexValue}`)
     bookList.appendChild(bookInfo);
     bookInfo.textContent =  book.info();
     let delButton = document.createElement('button');
