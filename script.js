@@ -40,5 +40,9 @@ library.forEach((book) => {
     let bookInfo = document.createElement('div');
     bookList.appendChild(bookInfo);
     bookInfo.textContent =  book.info();
+    let delButton = document.createElement('button');
+    delButton.classList.add('delButton');
+    bookInfo.appendChild(delButton);
+    delButton.textContent = 'Delete';
 })         
 });
