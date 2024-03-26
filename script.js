@@ -26,13 +26,15 @@ function BookFromForm(title, author, pages, read) {
     new Book(document.getElementById('title').value,
              document.getElementById('author').value,
              document.getElementById('pages').value,
-             document.getElementById('read').value)
+             document.getElementById('read').value);
+    bookList.replaceChildren();
+    createBookList();
 }
 
 function removeFromLibrary(index) {
 
     library.splice(index, 1);
-    console.log(index)
+    console.log(index);
     console.log(library);
     bookList.replaceChildren();
     createBookList();
