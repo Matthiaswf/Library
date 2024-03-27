@@ -1,0 +1,14 @@
+.formContainer {
+display: none;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+height: 100px;
+width: 300px;
+box-sizing: border-box;
+border-radius: 10px;
+position: fixed;
+float: left;
+z-index: 30;
+}
+

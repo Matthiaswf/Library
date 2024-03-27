@@ -2,7 +2,9 @@ const container = document.querySelector('.container');
 let bookList = document.createElement('div');
 bookList.classList.add('bookList');
 container.appendChild(bookList);
+const formButton = document.querySelector('.formButton');
 const displayButton = document.querySelector('.button');
+let form = document.querySelector('.formContainer');
 
 let library = [];
 
@@ -25,7 +27,7 @@ function Book(title, author, pages, read) {
             createBookList();
         } else {
             this.read = 'read'
-            
+
             bookList.replaceChildren();
             createBookList();
         }
@@ -82,8 +84,23 @@ function createBookList () {
 
 displayButton.addEventListener('click', () => {
     
-    createBookList ();   
+    createBookList ();
 });
 
+formButton.addEventListener('click', () => {
+    
+    displayForm();
+});
+
+function displayForm() {
+
+    if (form.style.display === "flex") {
+        form.style.display = "none";
+        document.getElementById("form").reset();
+
+    } else {
+    form.style.display = "flex";
+    }
+}
 let book1 = new Book('book1', 'me',  '12', 'not read')
 let book2 = new Book('book2', 'alsome', '13', 'read')

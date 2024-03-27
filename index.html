@@ -9,15 +9,17 @@
 <body>
 
 <div class="container">
+    <button type="button" class="formButton">Add a Book</button>
     <button type="button" class="button">Display Books</button>
 </div>
 <div class="formContainer">
-    <form id="form" action="#">
+    <form id="form" action="#" >
         Title: <input type="text" id="title" name="title"><br>
         Author: <input type="text" id="author" name="author"><br>
         Pages: <input type="text" id="pages" name="pages"><br>
         Read: <input type="text" id="read" name="read"><br><br>
         <input type="button" onclick="BookFromForm()" value="Submit">
+        <input type="button" onclick="displayForm()" value="Cancel">
       </form>
 </div>
 <script src="script.js"></script>
