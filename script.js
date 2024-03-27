@@ -17,6 +17,20 @@ function Book(title, author, pages, read) {
         return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.read}.`;
     }
 
+    this.changeReadValue = function() {
+        if (this.read === 'read') {
+            this.read = 'unread'
+
+            bookList.replaceChildren();
+            createBookList();
+        } else {
+            this.read = 'read'
+            
+            bookList.replaceChildren();
+            createBookList();
+        }
+    }
+
     library.push(this);
     this.indexValue = library.indexOf(this);
     console.log(library);
@@ -27,6 +41,7 @@ function BookFromForm(title, author, pages, read) {
              document.getElementById('author').value,
              document.getElementById('pages').value,
              document.getElementById('read').value);
+    
     bookList.replaceChildren();
     createBookList();
     document.getElementById("form").reset();
@@ -46,14 +61,22 @@ function createBookList () {
     library.forEach((book) => {
 
         book.indexValue = library.indexOf(book);
+
         let bookInfo = document.createElement('div');
         bookList.appendChild(bookInfo);
         bookInfo.textContent =  book.info();
+
         let delButton = document.createElement('button');
         delButton.classList.add('delButton');
         bookInfo.appendChild(delButton);
         delButton.textContent = 'Delete';
         delButton.setAttribute('onclick', `removeFromLibrary(${book.indexValue})`);
+
+        let readButton = document.createElement('button');
+        readButton.classList.add('readButton');
+        bookInfo.appendChild(readButton);
+        readButton.textContent = `${book.read}`;
+        readButton.setAttribute('onclick', `${book.title}.changeReadValue()`);
     })
 };
 
